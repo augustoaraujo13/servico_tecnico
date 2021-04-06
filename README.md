@@ -28,4 +28,5 @@ Scene Builder para ajudar na modelagem gráfica do aplicação.
 Para melhorar o controle sobre as versões do software usaremos repositório remoto Github, para alocar o projeto. A ferramenta Git nós ajudara a enviar e atualizar o projeto local com o remoto.
 
 #Google Drive:
+
 O armazenamento em nuvem do Google, será usado como bakup do projeto ou partes dele.
