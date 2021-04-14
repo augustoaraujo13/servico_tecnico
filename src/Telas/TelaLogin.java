@@ -1,9 +1,25 @@
 package Telas;
 
+import ConexaoBanco.Conexao;
+import java.sql.Connection;
+
+
 public class TelaLogin extends javax.swing.JFrame {
+
+    Connection conn = null;
+    String conectado = "Conectado!";
+    String desconectado = "Não conectou!";
 
     public TelaLogin() {
         initComponents();
+
+        conn = Conexao.abrirBanco();
+        if (conn != null) {
+            LblStatus2.setText(conectado);
+        } else {
+            LblStatus2.setText(desconectado);
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -86,9 +102,8 @@ public class TelaLogin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
     public static void main(String args[]) {
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -111,7 +126,6 @@ public class TelaLogin extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-      
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaLogin().setVisible(true);
