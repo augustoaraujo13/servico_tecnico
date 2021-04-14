@@ -40,13 +40,11 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="LblStatus2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Component id="JbLogin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="BtnLogin" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="TxtUsuario" max="32767" attributes="0"/>
-                      <Component id="JpSenha" pref="164" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="TxtUsuario" max="32767" attributes="0"/>
+                  <Component id="JpSenha" pref="164" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="55" max="32767" attributes="0"/>
           </Group>
@@ -71,10 +69,10 @@
                   <Component id="LblIconePc" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JbLogin" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LblStatus2" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="LblStatus2" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnLogin" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="LblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
@@ -103,7 +101,7 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="JpSenha">
     </Component>
-    <Component class="javax.swing.JButton" name="JbLogin">
+    <Component class="javax.swing.JButton" name="BtnLogin">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="0" type="rgb"/>
@@ -113,6 +111,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Login"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnLoginActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LblStatus">
       <Properties>
