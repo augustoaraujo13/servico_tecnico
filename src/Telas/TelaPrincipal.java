@@ -15,8 +15,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCliente = new javax.swing.JMenuItem();
         MenuUsuario = new javax.swing.JMenuItem();
         MenuOS = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        MenuRelatorio = new javax.swing.JMenu();
+        MenuServico = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,13 +41,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuCadastro);
 
-        jMenu2.setText("Relatório");
+        MenuRelatorio.setText("Relatório");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem1.setText("Serviço");
-        jMenu2.add(jMenuItem1);
+        MenuServico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
+        MenuServico.setText("Serviço");
+        MenuRelatorio.add(MenuServico);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(MenuRelatorio);
 
         setJMenuBar(jMenuBar1);
 
@@ -105,9 +105,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu MenuCadastro;
     private javax.swing.JMenuItem MenuCliente;
     private javax.swing.JMenuItem MenuOS;
+    private javax.swing.JMenu MenuRelatorio;
+    private javax.swing.JMenuItem MenuServico;
     private javax.swing.JMenuItem MenuUsuario;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }
