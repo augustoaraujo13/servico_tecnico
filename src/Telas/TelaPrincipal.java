@@ -11,34 +11,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        MenuCadastro = new javax.swing.JMenu();
+        MenuCliente = new javax.swing.JMenuItem();
+        MenuUsuario = new javax.swing.JMenuItem();
+        MenuOS = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastro");
+        MenuCadastro.setText("Cadastro");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem1.setText("Cliente");
-        jMenu1.add(jMenuItem1);
+        MenuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
+        MenuCliente.setText("Cliente");
+        MenuCadastro.add(MenuCliente);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem2.setText("Usuário");
-        jMenu1.add(jMenuItem2);
+        MenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_MASK));
+        MenuUsuario.setText("Usuário");
+        MenuCadastro.add(MenuUsuario);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem3.setText("OS");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        MenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        MenuOS.setText("OS");
+        MenuOS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                MenuOSActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        MenuCadastro.add(MenuOS);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(MenuCadastro);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
@@ -59,9 +59,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void MenuOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_MenuOSActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -96,11 +96,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu MenuCadastro;
+    private javax.swing.JMenuItem MenuCliente;
+    private javax.swing.JMenuItem MenuOS;
+    private javax.swing.JMenuItem MenuUsuario;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }
