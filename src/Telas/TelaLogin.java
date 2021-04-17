@@ -1,6 +1,7 @@
 package Telas;
 
 import ConexaoBanco.Conexao;
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,10 +29,28 @@ public class TelaLogin extends javax.swing.JFrame {
 
             if (rs.next()) {
 
-                TelaPrincipal tp = new TelaPrincipal();
-                tp.setVisible(true);
-                this.dispose();
-                conn.close();
+                String perfil = rs.getString(6);
+
+                if (perfil.equals("Admin")) {
+
+                    TelaPrincipal tp = new TelaPrincipal();
+                    tp.setVisible(true);
+                    TelaPrincipal.MenuRelatorio.setEnabled(true);
+                    TelaPrincipal.MenuUsuario.setEnabled(true);
+                    TelaPrincipal.LblUsuario2.setText(rs.getString(2));
+                    //TelaPrincipal.LblUsuario2.setForeground(Color.BLUE);
+                    this.dispose();
+                    conn.close();
+
+                } else {
+
+                    TelaPrincipal tp = new TelaPrincipal();
+                    TelaPrincipal.LblUsuario2.setText(rs.getString(2));
+                    tp.setVisible(true);
+                    this.dispose();
+                    conn.close();
+
+                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha invalidado!");

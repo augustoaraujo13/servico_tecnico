@@ -1,5 +1,10 @@
 package Telas;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 public class TelaPrincipal extends javax.swing.JFrame {
 
     public TelaPrincipal() {
@@ -21,7 +26,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         MenuCliente = new javax.swing.JMenuItem();
         MenuUsuario = new javax.swing.JMenuItem();
         MenuOS = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        MenuRelatorio = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -31,6 +36,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela controle de OS ");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -61,6 +71,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_MASK));
         MenuUsuario.setText("Usuário");
+        MenuUsuario.setEnabled(false);
         MenuCadastro.add(MenuUsuario);
 
         MenuOS.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
@@ -74,17 +85,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(MenuCadastro);
 
-        jMenu2.setText("Relatório");
+        MenuRelatorio.setText("Relatório");
+        MenuRelatorio.setEnabled(false);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem1.setText("Serviço");
-        jMenu2.add(jMenuItem1);
+        MenuRelatorio.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(MenuRelatorio);
 
         jMenu1.setText("Ajuda");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem2.setText("Sobre");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -121,9 +139,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(LblUsuario)
                             .addComponent(LblData))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LblData2)
-                            .addComponent(LblUsuario2))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(LblUsuario2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LblData2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,8 +172,33 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuOSActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        
+        String saindo = "Tem certeza que deseja sair?";
+        String titulo = "Atenção!";
+        int sair = JOptionPane.showConfirmDialog(null, saindo,titulo, JOptionPane.YES_NO_OPTION);
+        
+        if (sair == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        } else {
+        }
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+        DateFormat df = DateFormat.getDateInstance(DateFormat.DATE_FIELD);
+        Date data = new Date();
+
+        LblData2.setText(df.format(data));
+  
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+               TelaSobre ts = new TelaSobre();
+               ts.setVisible(true);
+                      
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -193,15 +236,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel LblData;
     private javax.swing.JLabel LblData2;
     private javax.swing.JLabel LblUsuario;
-    private javax.swing.JLabel LblUsuario2;
+    public static javax.swing.JLabel LblUsuario2;
     private javax.swing.JMenu MenuCadastro;
     private javax.swing.JMenuItem MenuCliente;
     private javax.swing.JMenuItem MenuOS;
-    private javax.swing.JMenuItem MenuUsuario;
+    public static javax.swing.JMenu MenuRelatorio;
+    public static javax.swing.JMenuItem MenuUsuario;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
