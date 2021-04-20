@@ -20,6 +20,25 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     }
 
     private void Criar() {
+        
+        String criando = "insert into usuarios(id_user, usuario, email,login,senha)"
+                + "values(?,?,?,?,?,?);";
+        
+        try {
+            
+            st = conn.prepareStatement(criando);
+            st.setString(1, TxtId.getText());
+            st.setString(2, TxtUsuario.getText());
+            st.setString(3, TxtEmail.getText());
+            st.setString(4, TxtLogin.getText());
+            st.setString(5, TxtSenha.getText());
+            st.setString(6, CbPerfil.getSelectedItem().toString());
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
 
     }
 
@@ -54,7 +73,6 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-            System.out.println(e);
 
         }
 
