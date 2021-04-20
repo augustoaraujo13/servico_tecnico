@@ -21,23 +21,25 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
     private void Criar() {
         
-        String criando = "insert into usuarios(id_user, usuario, email,login,senha)"
+        String criando = "insert into usuarios(id_user, usuario, email,login,senha,perfil)"
                 + "values(?,?,?,?,?,?);";
         
         try {
             
             st = conn.prepareStatement(criando);
-            st.setString(1, TxtId.getText());
-            st.setString(2, TxtUsuario.getText());
-            st.setString(3, TxtEmail.getText());
-            st.setString(4, TxtLogin.getText());
-            st.setString(5, TxtSenha.getText());
+         
+            st.setString(1, TxtId.getText().trim());
+            st.setString(2, TxtUsuario.getText().trim());
+            st.setString(3, TxtEmail.getText().trim());
+            st.setString(4, TxtLogin.getText().trim());
+            st.setString(5, TxtSenha.getText().trim());
             st.setString(6, CbPerfil.getSelectedItem().toString());
             
             st.executeUpdate();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
         }
         
 
@@ -138,6 +140,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         BtnCriar.setText("Criar");
         BtnCriar.setToolTipText("Cria um novo usuário");
         BtnCriar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnCriar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnCriarActionPerformed(evt);
+            }
+        });
 
         BtnBuscar.setBackground(new java.awt.Color(0, 153, 255));
         BtnBuscar.setForeground(new java.awt.Color(255, 255, 255));
@@ -258,6 +265,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
         Buscar();
     }//GEN-LAST:event_BtnBuscarActionPerformed
+
+    private void BtnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCriarActionPerformed
+        Criar();
+    }//GEN-LAST:event_BtnCriarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
