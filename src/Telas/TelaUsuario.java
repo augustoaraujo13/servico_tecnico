@@ -1,6 +1,7 @@
 package Telas;
 
 import ConexaoBanco.Conexao;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -156,12 +157,57 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-            System.out.println(e);
+            ///System.out.println(e);
         }
 
     }
 
     private void Deletar() {
+
+        String confirmando = "Deseja deletar esse usuário?";
+        String confirmando2 = "Atenção";
+
+        int confirmar = JOptionPane.showConfirmDialog(null, confirmando, confirmando, JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+
+            String deletando = "delete from usuarios where id_user=?;";
+
+            try {
+
+                st = conn.prepareStatement(deletando);
+                st.setString(1, TxtId.getText().trim());
+
+                if (TxtId.getText().isEmpty()) {
+
+                    String informacao = "Preencha o campo Id, para excluir usuario!";
+                    JOptionPane.showMessageDialog(this, informacao);
+
+                } else {
+
+                    String comcluido = "Usuário excluído com sucesso!";
+                    String resposta2 = "";
+                    String resposta3 = "Admin";
+
+                    st.executeUpdate();
+
+                    JOptionPane.showMessageDialog(this, comcluido);
+                    TxtId.setText(resposta2);
+                    TxtUsuario.setText(resposta2);
+                    TxtEmail.setText(resposta2);
+                    TxtLogin.setText(resposta2);
+                    TxtSenha.setText(resposta2);
+                    CbPerfil.setSelectedItem(resposta3);
+
+                }
+
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+                System.out.println(e);
+            }
+        } else {
+
+        }
 
     }
 
@@ -250,6 +296,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         BtnDeletar.setText("Deletar");
         BtnDeletar.setToolTipText("Cuidado!! Deleta o usuário no banco de dados");
         BtnDeletar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnDeletarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/PC.png"))); // NOI18N
 
@@ -362,6 +413,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void BtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarActionPerformed
         Alterar();
     }//GEN-LAST:event_BtnAlterarActionPerformed
+
+    private void BtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarActionPerformed
+        Deletar();
+    }//GEN-LAST:event_BtnDeletarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
