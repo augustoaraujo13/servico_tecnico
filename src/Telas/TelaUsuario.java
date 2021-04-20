@@ -24,6 +24,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         String criando = "insert into usuarios(id_user, usuario, email,login,senha,perfil)"
                 + "values(?,?,?,?,?,?);";
         
+        String comcluido = "Usuário cadastro!";
+        
         try {
             
             st = conn.prepareStatement(criando);
@@ -36,6 +38,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             st.setString(6, CbPerfil.getSelectedItem().toString());
             
             st.executeUpdate();
+            
+            JOptionPane.showMessageDialog(this, comcluido);
             
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
