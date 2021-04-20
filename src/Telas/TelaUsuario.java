@@ -117,6 +117,48 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
     private void Alterar() {
 
+        String alterando = "update usuarios set usuario =?, email =?, login =?,"
+                + " senha =?, perfil =? where id_user =?;";
+
+        try {
+
+            st = conn.prepareStatement(alterando);
+            st.setString(1, TxtUsuario.getText().trim());
+            st.setString(2, TxtEmail.getText().trim());
+            st.setString(3, TxtLogin.getText().trim());
+            st.setString(4, TxtSenha.getText().trim());
+            st.setString(5, CbPerfil.getSelectedItem().toString());
+            st.setString(6, TxtId.getText().trim());
+
+            if ((TxtId.getText().isEmpty()) || (TxtUsuario.getText().isEmpty())
+                    || (TxtLogin.getText().isEmpty()) || (TxtSenha.getText().isEmpty())) {
+
+                String informacao2 = "Preencha os campos obrigatórios!!!!";
+                JOptionPane.showMessageDialog(this, informacao2);
+
+            } else {
+
+                String comcluido = "Dados alteras com sucesso!";
+                String resposta2 = "";
+                String resposta3 = "Admin";
+
+                st.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, comcluido);
+                TxtId.setText(resposta2);
+                TxtUsuario.setText(resposta2);
+                TxtEmail.setText(resposta2);
+                TxtLogin.setText(resposta2);
+                TxtSenha.setText(resposta2);
+                CbPerfil.setSelectedItem(resposta3);
+
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
+        }
+
     }
 
     private void Deletar() {
@@ -197,6 +239,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         BtnAlterar.setText("Alterar");
         BtnAlterar.setToolTipText("Altera o usuário no banco de dados");
         BtnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnAlterarActionPerformed(evt);
+            }
+        });
 
         BtnDeletar.setBackground(new java.awt.Color(255, 0, 0));
         BtnDeletar.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,6 +358,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private void BtnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCriarActionPerformed
         Criar();
     }//GEN-LAST:event_BtnCriarActionPerformed
+
+    private void BtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarActionPerformed
+        Alterar();
+    }//GEN-LAST:event_BtnAlterarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
