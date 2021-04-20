@@ -20,32 +20,38 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     }
 
     private void Criar() {
-        
+
         String criando = "insert into usuarios(id_user, usuario, email,login,senha,perfil)"
                 + "values(?,?,?,?,?,?);";
-        
-        String comcluido = "Usuário cadastro!";
-        
+        String comcluido = "Usuário cadastrado!";
+        String resposta2 = "";
+        String resposta3 = "Admin";
+
         try {
-            
+
             st = conn.prepareStatement(criando);
-         
+
             st.setString(1, TxtId.getText().trim());
             st.setString(2, TxtUsuario.getText().trim());
             st.setString(3, TxtEmail.getText().trim());
             st.setString(4, TxtLogin.getText().trim());
             st.setString(5, TxtSenha.getText().trim());
             st.setString(6, CbPerfil.getSelectedItem().toString());
-            
+
             st.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(this, comcluido);
-            
+            TxtId.setText(resposta2);
+            TxtUsuario.setText(resposta2);
+            TxtEmail.setText(resposta2);
+            TxtLogin.setText(resposta2);
+            TxtSenha.setText(resposta2);
+            CbPerfil.setSelectedItem(resposta3);
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
             System.out.println(e);
         }
-        
 
     }
 
