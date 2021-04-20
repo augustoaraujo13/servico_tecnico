@@ -34,6 +34,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             st.setString(5, TxtSenha.getText());
             st.setString(6, CbPerfil.getSelectedItem().toString());
             
+            st.executeUpdate();
             
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
