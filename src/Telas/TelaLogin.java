@@ -1,7 +1,7 @@
 package Telas;
 
 import ConexaoBanco.Conexao;
-import java.awt.Color;
+//import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,7 +40,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     TelaPrincipal.LblUsuario2.setText(rs.getString(2));
                     //TelaPrincipal.LblUsuario2.setForeground(Color.BLUE);
                     this.dispose();
-                    conn.close();
+                    //conn.close();
 
                 } else {
 
@@ -48,7 +48,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     TelaPrincipal.LblUsuario2.setText(rs.getString(2));
                     tp.setVisible(true);
                     this.dispose();
-                    conn.close();
+                    //conn.close();
 
                 }
 
