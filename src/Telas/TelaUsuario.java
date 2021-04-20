@@ -45,7 +45,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             st.setString(6, CbPerfil.getSelectedItem().toString());
 
             if ((TxtId.getText().isEmpty()) || (TxtUsuario.getText().isEmpty())
-                || (TxtLogin.getText().isEmpty()) || (TxtSenha.getText().isEmpty()) ) {
+                    || (TxtLogin.getText().isEmpty()) || (TxtSenha.getText().isEmpty())) {
 
                 String informacao2 = "Preencha os campos obrigatórios!!!!";
                 JOptionPane.showMessageDialog(this, informacao2);
@@ -61,7 +61,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 TxtLogin.setText(resposta2);
                 TxtSenha.setText(resposta2);
                 CbPerfil.setSelectedItem(resposta3);
-                
+
             }
 
         } catch (SQLException e) {
@@ -87,6 +87,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 TxtLogin.setText(rs.getString(4));
                 TxtSenha.setText(rs.getString(5));
                 CbPerfil.setSelectedItem(rs.getString(6));
+            } else if (TxtId.getText().isEmpty()) {
+
+                String informacao3 = "O campo Id precisa ser informado,"
+                        + " para executar a busca!";
+                JOptionPane.showMessageDialog(this, informacao3);
+
             } else {
                 String resposta = "O usuario que você pesquisou, não existe";
                 String resposta2 = "";
