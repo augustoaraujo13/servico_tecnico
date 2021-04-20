@@ -52,13 +52,17 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TxtEmail" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
+                              <Component id="TxtId" min="-2" pref="64" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="TxtEmail" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="TxtUsuario" min="-2" pref="232" max="-2" attributes="0"/>
                                   <Component id="TxtSenha" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Component id="TxtId" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
                                   <Component id="CbPerfil" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -97,13 +101,16 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TxtId" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel2" alignment="0" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="TxtId" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LblUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TxtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="TxtUsuario" min="-2" max="-2" attributes="0"/>
+                  <Component id="LblUsuario" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -148,12 +155,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="LblId">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Id"/>
+        <Property name="text" type="java.lang.String" value="*Id"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LblUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usu&#xe1;rio"/>
+        <Property name="text" type="java.lang.String" value="*Usu&#xe1;rio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LblEmail">
@@ -163,17 +170,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="LblLogin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Login"/>
+        <Property name="text" type="java.lang.String" value="*Login"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LblSenha">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Senha"/>
+        <Property name="text" type="java.lang.String" value="*Senha"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LblPerfil">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Perfil"/>
+        <Property name="text" type="java.lang.String" value="*Perfil"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="TxtId">
@@ -279,6 +286,11 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Icones/PC.png"/>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="*Campos obrigat&#xf3;rios"/>
       </Properties>
     </Component>
   </SubComponents>

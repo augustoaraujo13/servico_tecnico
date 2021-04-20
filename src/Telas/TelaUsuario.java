@@ -14,7 +14,13 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     ResultSet rs = null;
 
     public TelaUsuario() {
+
+        String informacao = "Antes de cadastrar,"
+                + " deletar ou alterar, "
+                + "faça uma busca usando o Id para evitar possíveis erros";
         initComponents();
+
+        JOptionPane.showMessageDialog(this, informacao);
 
         conn = Conexao.abrirBanco();
     }
@@ -38,19 +44,29 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             st.setString(5, TxtSenha.getText().trim());
             st.setString(6, CbPerfil.getSelectedItem().toString());
 
-            st.executeUpdate();
+            if ((TxtId.getText().isEmpty()) || (TxtUsuario.getText().isEmpty())
+                || (TxtLogin.getText().isEmpty()) || (TxtSenha.getText().isEmpty()) ) {
 
-            JOptionPane.showMessageDialog(this, comcluido);
-            TxtId.setText(resposta2);
-            TxtUsuario.setText(resposta2);
-            TxtEmail.setText(resposta2);
-            TxtLogin.setText(resposta2);
-            TxtSenha.setText(resposta2);
-            CbPerfil.setSelectedItem(resposta3);
+                String informacao2 = "Preencha os campos obrigatórios!!!!";
+                JOptionPane.showMessageDialog(this, informacao2);
+
+            } else {
+
+                st.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, comcluido);
+                TxtId.setText(resposta2);
+                TxtUsuario.setText(resposta2);
+                TxtEmail.setText(resposta2);
+                TxtLogin.setText(resposta2);
+                TxtSenha.setText(resposta2);
+                CbPerfil.setSelectedItem(resposta3);
+                
+            }
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-            System.out.println(e);
+            //System.out.println(e);
         }
 
     }
@@ -76,6 +92,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 String resposta2 = "";
                 String resposta3 = "Admin";
                 JOptionPane.showMessageDialog(this, resposta);
+                TxtId.setText(resposta2);
                 TxtUsuario.setText(resposta2);
                 TxtEmail.setText(resposta2);
                 TxtLogin.setText(resposta2);
@@ -86,6 +103,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
+            ///System.out.println(e);
 
         }
 
@@ -120,6 +138,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         BtnAlterar = new javax.swing.JButton();
         BtnDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -128,17 +147,17 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(499, 0));
         setPreferredSize(new java.awt.Dimension(499, 370));
 
-        LblId.setText("Id");
+        LblId.setText("*Id");
 
-        LblUsuario.setText("Usuário");
+        LblUsuario.setText("*Usuário");
 
         LblEmail.setText("Email");
 
-        LblLogin.setText("Login");
+        LblLogin.setText("*Login");
 
-        LblSenha.setText("Senha");
+        LblSenha.setText("*Senha");
 
-        LblPerfil.setText("Perfil");
+        LblPerfil.setText("*Perfil");
 
         CbPerfil.setBackground(new java.awt.Color(0, 153, 255));
         CbPerfil.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -181,6 +200,8 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/PC.png"))); // NOI18N
 
+        jLabel2.setText("*Campos obrigatórios");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -200,13 +221,16 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                         .addComponent(TxtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxtEmail)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2))
+                            .addComponent(TxtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(TxtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CbPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -234,11 +258,13 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                         .addGap(26, 26, 26))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LblUsuario)
-                    .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LblUsuario))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TxtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -299,5 +325,6 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TxtSenha;
     private javax.swing.JTextField TxtUsuario;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
