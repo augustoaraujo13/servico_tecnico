@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 public class TelaCliente extends javax.swing.JInternalFrame {
 
@@ -15,8 +16,50 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     ResultSet rs = null;
 
     public TelaCliente() {
+        
+        String informacao = "Use o campo pesquisar, para ver"
+                + " se o usuário já existe!";
+        
         initComponents();
+        
+        JOptionPane.showMessageDialog(this, informacao);
+        
         conn = Conexao.abrirBanco();
+        
+        
+        
+    }
+
+    private void pesquisar() {
+
+        String pesquisa = "select * from clientes where nome like ?";
+        String pesquisa2 = "%";
+
+        try {
+
+            st = conn.prepareStatement(pesquisa);
+
+            st.setString(1, TxtPesquisa.getText().trim() + pesquisa2);
+            rs = st.executeQuery();
+
+            TabClientes.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            //System.out.println(e);
+        }
+
+    }
+    
+    private void mostrar(){
+   
+        int setar = TabClientes.getSelectedRow();
+        
+        TxtNome.setText(TabClientes.getModel().getValueAt(setar, 1).toString().trim());
+        TxtEmail.setText(TabClientes.getModel().getValueAt(setar, 2).toString().trim());
+        TxtTelefone.setText(TabClientes.getModel().getValueAt(setar, 3).toString().trim());
+        TxtCpf.setText(TabClientes.getModel().getValueAt(setar, 4).toString().trim());
+        
     }
 
     private void Criar() {
@@ -88,7 +131,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         TxtPesquisa = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        TabInformacao = new javax.swing.JTable();
+        TabClientes = new javax.swing.JTable();
         LblPesquisar = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -147,8 +190,13 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 TxtPesquisaActionPerformed(evt);
             }
         });
+        TxtPesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                TxtPesquisaKeyReleased(evt);
+            }
+        });
 
-        TabInformacao.setModel(new javax.swing.table.DefaultTableModel(
+        TabClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -159,7 +207,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(TabInformacao);
+        TabClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabClientesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(TabClientes);
 
         LblPesquisar.setText("Pesquisar:");
 
@@ -270,6 +323,14 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtPesquisaActionPerformed
 
+    private void TxtPesquisaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPesquisaKeyReleased
+        pesquisar();
+    }//GEN-LAST:event_TxtPesquisaKeyReleased
+
+    private void TabClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabClientesMouseClicked
+        mostrar();
+    }//GEN-LAST:event_TabClientesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnAlterar;
@@ -280,7 +341,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LblNome;
     private javax.swing.JLabel LblPesquisar;
     private javax.swing.JLabel LblTelefone;
-    private javax.swing.JTable TabInformacao;
+    private javax.swing.JTable TabClientes;
     private javax.swing.JTextField TxtCpf;
     private javax.swing.JTextField TxtEmail;
     private javax.swing.JTextField TxtNome;
