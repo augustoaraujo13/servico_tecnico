@@ -72,6 +72,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         MenuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
         MenuCliente.setText("Cliente");
+        MenuCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuClienteActionPerformed(evt);
+            }
+        });
         MenuCadastro.add(MenuCliente);
 
         MenuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_MASK));
@@ -169,7 +174,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(LblData2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1))
-                    .addComponent(Desktop, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
+                    .addComponent(Desktop))
                 .addContainerGap())
         );
 
@@ -221,6 +226,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void MenuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCadastroActionPerformed
         
     }//GEN-LAST:event_MenuCadastroActionPerformed
+
+    private void MenuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuClienteActionPerformed
+       TelaCliente tc = new TelaCliente();
+       tc.setVisible(true);
+       Desktop.add(tc);
+    }//GEN-LAST:event_MenuClienteActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

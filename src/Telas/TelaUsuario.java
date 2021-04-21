@@ -350,7 +350,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                         .addComponent(BtnAlterar)
                         .addGap(18, 18, 18)
                         .addComponent(BtnDeletar)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,7 +390,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnCriar)
                     .addComponent(BtnBuscar)
@@ -399,7 +399,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35))
         );
 
-        setBounds(0, 0, 499, 408);
+        setBounds(0, 0, 494, 405);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuscarActionPerformed
