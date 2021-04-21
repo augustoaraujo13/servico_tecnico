@@ -59,6 +59,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         TxtTelefone.setText(TabClientes.getModel().getValueAt(setar, 3).toString().trim());
         TxtCpf.setText(TabClientes.getModel().getValueAt(setar, 4).toString().trim());
 
+        BtnCriar.setEnabled(false);
+
     }
 
     private void Criar() {
@@ -133,6 +135,8 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
                 JOptionPane.showMessageDialog(this, comcluido);
 
+                BtnCriar.setEnabled(true);
+
                 TxtPesquisa.setText(resposta2);
                 TxtNome.setText(resposta2);
                 TxtEmail.setText(resposta2);
@@ -149,6 +153,54 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }
 
     private void Deletar() {
+
+        String confirmando = "Deseja deletar esse cliente?";
+        String confirmando2 = "Atenção";
+
+        int confirmar = JOptionPane.showConfirmDialog(null, confirmando, confirmando, JOptionPane.YES_NO_OPTION);
+
+        if (confirmar == JOptionPane.YES_OPTION) {
+
+            String deletando = "delete from clientes where id_cliente=?;";
+
+            try {
+
+                st = conn.prepareStatement(deletando);
+                st.setString(1, TxtId.getText().trim());
+
+                if (TxtId.getText().isEmpty()) {
+
+                    String informacao = "Preencha o campo Id, para excluir usuario!";
+                    JOptionPane.showMessageDialog(this, informacao);
+
+                } else {
+
+                    String comcluido = "Cliente excluído com sucesso!";
+                    String resposta2 = "";
+
+                    st.executeUpdate();
+
+                    JOptionPane.showMessageDialog(this, comcluido);
+                    BtnCriar.setEnabled(true);
+
+                    TxtId.setText(resposta2);
+                    TxtNome.setText(resposta2);
+                    TxtEmail.setText(resposta2);
+                    TxtTelefone.setText(resposta2);
+                    TxtCpf.setText(resposta2);
+                    TxtPesquisa.setText(resposta2);
+                    
+
+                }
+
+            } catch (HeadlessException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+                System.out.println(e);
+            }
+        } else {
+
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -364,7 +416,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
     private void BtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarActionPerformed
-
+        Deletar();
     }//GEN-LAST:event_BtnDeletarActionPerformed
 
     private void TxtPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtPesquisaActionPerformed
