@@ -183,7 +183,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuOSActionPerformed
-        // TODO add your handling code here:
+       
+        TelaOs to = new TelaOs();
+        to.setVisible(true);
+        Desktop.add(to);
+        
     }//GEN-LAST:event_MenuOSActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
