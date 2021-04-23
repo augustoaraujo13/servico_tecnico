@@ -53,6 +53,59 @@ public class TelaOs extends javax.swing.JInternalFrame {
 
     }
 
+    private void criarOs() {
+
+        String criando = "insert into os (situação, tipo, equipamento, defeito, "
+                + "servico, tecnico, valor, id_cli) values(?,?,?,?,?,?,?,?);";
+
+        try {
+
+            st = conn.prepareStatement(criando);
+
+            st.setString(1, tipo);
+            st.setString(2, CbSituação.getSelectedItem().toString());
+            st.setString(3, TxtEquipamento.getText().trim());
+            st.setString(4, TxtDefeito.getText().trim());
+            st.setString(5, TxtServico.getText().trim());
+            st.setString(6, TxtTecnico.getText().trim());
+            st.setString(7, TxtValorTotal.getText().trim().replace(",", "."));
+            st.setString(8, TxtIdOs.getText().trim());
+
+            if ((TxtEquipamento.getText().isEmpty()) || (TxtDefeito.getText().isEmpty())
+                    || (TxtTecnico.getText().isEmpty())) {
+
+                String informacao = "Preencha os campos obrigatórios!";
+                JOptionPane.showMessageDialog(this, informacao);
+
+            } else {
+
+                String comcluido = "Ordem de serviço criada!";
+                String resposta = "";
+                String resposta2 = "Na bancada";
+
+                st.executeUpdate();
+                
+                JOptionPane.showMessageDialog(this, comcluido);
+                
+                TxtPesquisarOs.setText(resposta);
+                CbSituação.setSelectedItem(resposta2);
+                TxtIdOs.setText(resposta);
+                TxtEquipamento.setText(resposta);
+                TxtDefeito.setText(resposta);
+                TxtServico.setText(resposta);
+                TxtTecnico.setText(resposta);
+                TxtValorTotal.setText(resposta);
+                
+
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            //System.out.println(e);
+        }
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -180,7 +233,7 @@ public class TelaOs extends javax.swing.JInternalFrame {
 
         LabSituação.setText("Situação:");
 
-        CbSituação.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entregado", "Orçamento reprovado", "Aguardando aprovação", "Aguardando peças", "Abandonado pela cliente", "Na bancada", "Retornou", " ", " " }));
+        CbSituação.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Na bancada", "Entrega ok", "Orçamento reprovado", "Aguardando aprovação", "Aguardando peças", "Abandonado pela cliente", "Retornou", " ", " " }));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jPanel2.setPreferredSize(new java.awt.Dimension(470, 450));
@@ -410,7 +463,7 @@ public class TelaOs extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtTecnicoActionPerformed
 
     private void BtnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCriarActionPerformed
-        // Criar();
+         criarOs();
     }//GEN-LAST:event_BtnCriarActionPerformed
 
     private void BtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarActionPerformed
@@ -439,11 +492,10 @@ public class TelaOs extends javax.swing.JInternalFrame {
 
     private void RadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadOsActionPerformed
         tipo = "OS";
-        tipo = "Orçamento";
     }//GEN-LAST:event_RadOsActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-       RadOrcamento.setSelected(true);
+        RadOrcamento.setSelected(true);
     }//GEN-LAST:event_formInternalFrameOpened
 
 
