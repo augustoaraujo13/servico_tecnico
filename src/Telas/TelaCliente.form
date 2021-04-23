@@ -71,18 +71,18 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
+                                      <Component id="TxtId" min="-2" pref="52" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="TxtCpf" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="BtnCriar" min="-2" pref="71" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="BtnAlterar" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="BtnDeletar" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="TxtId" min="-2" pref="52" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="TxtCpf" alignment="0" min="-2" pref="118" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -98,6 +98,7 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="LblTelefone" min="-2" max="-2" attributes="0"/>
@@ -105,7 +106,7 @@
                       <Component id="TxtTelefone" min="-2" pref="157" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="27" pref="84" max="32767" attributes="0"/>
+              <EmptySpace min="27" pref="49" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -194,7 +195,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Criar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Cria um novo usu&#xe1;rio"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cria um novo cliente"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
@@ -212,7 +213,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Alterar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Altera o usu&#xe1;rio no banco de dados"/>
+        <Property name="toolTipText" type="java.lang.String" value="Altera o cliente no banco de dados"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>
@@ -230,7 +231,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Deletar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Cuidado!! Deleta o usu&#xe1;rio no banco de dados"/>
+        <Property name="toolTipText" type="java.lang.String" value="Cuidado!! Deleta o cliente no banco de dados"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Cursor em Forma de M&#xe3;o"/>
         </Property>

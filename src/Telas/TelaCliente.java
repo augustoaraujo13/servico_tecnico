@@ -246,7 +246,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         BtnCriar.setBackground(new java.awt.Color(0, 204, 0));
         BtnCriar.setForeground(new java.awt.Color(255, 255, 255));
         BtnCriar.setText("Criar");
-        BtnCriar.setToolTipText("Cria um novo usuário");
+        BtnCriar.setToolTipText("Cria um novo cliente");
         BtnCriar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnCriar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +257,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         BtnAlterar.setBackground(new java.awt.Color(255, 153, 0));
         BtnAlterar.setForeground(new java.awt.Color(255, 255, 255));
         BtnAlterar.setText("Alterar");
-        BtnAlterar.setToolTipText("Altera o usuário no banco de dados");
+        BtnAlterar.setToolTipText("Altera o cliente no banco de dados");
         BtnAlterar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +268,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         BtnDeletar.setBackground(new java.awt.Color(255, 0, 0));
         BtnDeletar.setForeground(new java.awt.Color(255, 255, 255));
         BtnDeletar.setText("Deletar");
-        BtnDeletar.setToolTipText("Cuidado!! Deleta o usuário no banco de dados");
+        BtnDeletar.setToolTipText("Cuidado!! Deleta o cliente no banco de dados");
         BtnDeletar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -339,16 +339,16 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel1))
+                                    .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(BtnCriar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(BtnAlterar)
                                         .addGap(18, 18, 18)
-                                        .addComponent(BtnDeletar))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel1))
-                                    .addComponent(TxtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(BtnDeletar))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(LblEmail)
@@ -357,12 +357,13 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(LblNome)
                                     .addGap(27, 27, 27)
-                                    .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(83, 83, 83))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LblTelefone)
                         .addGap(18, 18, 18)
                         .addComponent(TxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 84, Short.MAX_VALUE))
+                .addGap(27, 49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
