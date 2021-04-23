@@ -14,6 +14,8 @@ public class TelaOs extends javax.swing.JInternalFrame {
     Connection conn = null;
     PreparedStatement st = null;
     ResultSet rs = null;
+    private String tipo;
+    private String situacao;
 
     public TelaOs() {
         initComponents();
@@ -48,7 +50,7 @@ public class TelaOs extends javax.swing.JInternalFrame {
         int setar = TabPesquisaOs.getSelectedRow();
 
         TxtIdOs.setText(TabPesquisaOs.getModel().getValueAt(setar, 0).toString().trim());
-           
+
     }
 
     @SuppressWarnings("unchecked")
@@ -91,6 +93,23 @@ public class TelaOs extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Tela ordem de serviço");
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -104,9 +123,19 @@ public class TelaOs extends javax.swing.JInternalFrame {
 
         buttonGroup1.add(RadOrcamento);
         RadOrcamento.setText("Orçamento");
+        RadOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadOrcamentoActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(RadOs);
         RadOs.setText("Ordem de serviço");
+        RadOs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadOsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -321,10 +350,12 @@ public class TelaOs extends javax.swing.JInternalFrame {
                         .addComponent(LblDefeito)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(TxtServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LblTecnico)
-                    .addComponent(TxtTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TxtServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TxtTecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblTecnico)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtValorTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,6 +432,19 @@ public class TelaOs extends javax.swing.JInternalFrame {
     private void TabPesquisaOsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabPesquisaOsMouseClicked
         mostrar();
     }//GEN-LAST:event_TabPesquisaOsMouseClicked
+
+    private void RadOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadOrcamentoActionPerformed
+        tipo = "Orçamento";
+    }//GEN-LAST:event_RadOrcamentoActionPerformed
+
+    private void RadOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadOsActionPerformed
+        tipo = "OS";
+        tipo = "Orçamento";
+    }//GEN-LAST:event_RadOsActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+       RadOrcamento.setSelected(true);
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
