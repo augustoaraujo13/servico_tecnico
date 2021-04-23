@@ -194,6 +194,60 @@ public class TelaOs extends javax.swing.JInternalFrame {
 
     }
 
+    private void AlterarOs() {
+
+        String alterandoOs = "update os set tipo =?, situação =?, "
+                + "equipamento =?, defeito =?, servico =?,"
+                + " tecnico =?, valor =? where os =?;";
+
+        try {
+
+            st = conn.prepareStatement(alterandoOs);
+
+            st.setString(1, tipo);
+            st.setString(2, CbSituação.getSelectedItem().toString());
+            st.setString(3, TxtEquipamento.getText().trim());
+            st.setString(4, TxtDefeito.getText().trim());
+            st.setString(5, TxtServico.getText().trim());
+            st.setString(6, TxtTecnico.getText().trim());
+            st.setString(7, TxtValorTotal.getText().trim().replace(",", "."));
+            st.setString(8, TxtNumeroOs.getText().trim());
+
+            if ((TxtEquipamento.getText().isEmpty()) || (TxtDefeito.getText().isEmpty())
+                    || (TxtTecnico.getText().isEmpty())) {
+
+                String informacao = "Preencha os campos obrigatórios!";
+                JOptionPane.showMessageDialog(this, informacao);
+
+            } else {
+
+                String comcluido = "Ordem de serviço alterada!";
+
+                st.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, comcluido);
+
+                TxtEquipamento.setText(null);
+                TxtDefeito.setText(null);
+                TxtServico.setText(null);
+                TxtTecnico.setText(null);
+                TxtValorTotal.setText(null);
+                TxtIdClienteOs.setText(null);
+                TxtDataHora.setText(null);
+                TxtNumeroOs.setText(null);
+                BtnCriar.setEnabled(true);
+                TxtPesquisarOs.setEnabled(true);
+                TabPesquisaOs.setVisible(true);
+
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
+        }
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -377,6 +431,8 @@ public class TelaOs extends javax.swing.JInternalFrame {
         });
 
         LblValorTotal.setText("Valor total:");
+
+        TxtValorTotal.setText("0");
 
         BtnCriar.setBackground(new java.awt.Color(0, 204, 0));
         BtnCriar.setForeground(new java.awt.Color(255, 255, 255));
@@ -573,7 +629,7 @@ public class TelaOs extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnCriarActionPerformed
 
     private void BtnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnAlterarActionPerformed
-        // alterar();
+        AlterarOs();
     }//GEN-LAST:event_BtnAlterarActionPerformed
 
     private void BtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarActionPerformed
