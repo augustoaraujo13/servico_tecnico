@@ -85,17 +85,16 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
             } else {
 
-                String comcluido = "Cliente cadastrado!";
-                String resposta = "";
+                String comcluido = "Cliente cadastrado com sucesso!";
 
                 st.executeUpdate();
 
                 JOptionPane.showMessageDialog(this, comcluido);
 
-                TxtNome.setText(resposta);
-                TxtEmail.setText(resposta);
-                TxtTelefone.setText(resposta);
-                TxtCpf.setText(resposta);
+                TxtNome.setText(null);
+                TxtEmail.setText(null);
+                TxtTelefone.setText(null);
+                TxtCpf.setText(null);
 
             }
 
@@ -128,8 +127,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
             } else {
 
-                String comcluido = "Dados alterados com sucesso!";
-                String resposta2 = "";
+                String comcluido = "Dados do cliente alterados com sucesso!";
 
                 st.executeUpdate();
 
@@ -137,11 +135,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
                 BtnCriar.setEnabled(true);
 
-                TxtPesquisa.setText(resposta2);
-                TxtNome.setText(resposta2);
-                TxtEmail.setText(resposta2);
-                TxtTelefone.setText(resposta2);
-                TxtCpf.setText(resposta2);
+                TxtPesquisa.setText(null);
+                TxtNome.setText(null);
+                TxtEmail.setText(null);
+                TxtTelefone.setText(null);
+                TxtCpf.setText(null);
 
             }
 
@@ -154,7 +152,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
     private void Deletar() {
 
-        String confirmando = "Deseja deletar esse cliente?";
+        String confirmando = "Deseja deletar este cliente?";
         String confirmando2 = "Atenção";
 
         int confirmar = JOptionPane.showConfirmDialog(null, confirmando, confirmando, JOptionPane.YES_NO_OPTION);
@@ -170,7 +168,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
                 if (TxtId.getText().isEmpty()) {
 
-                    String informacao = "Preencha o campo Id, para excluir usuario!";
+                    String informacao = "Preencha o campo Id, para excluir cliente!";
                     JOptionPane.showMessageDialog(this, informacao);
 
                 } else {
@@ -233,7 +231,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Tela Clientes");
+        setTitle("Tela Cliente");
 
         LblNome.setText("*Nome:");
 
@@ -378,7 +376,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                     .addComponent(TxtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LblId)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LblNome))
@@ -402,9 +400,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23))
         );
 
-        getAccessibleContext().setAccessibleName("Tela Cliente");
-
-        setBounds(0, 0, 494, 466);
+        setBounds(0, 0, 494, 498);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnCriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCriarActionPerformed

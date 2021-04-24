@@ -83,14 +83,14 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             rs = st.executeQuery();
 
             if (rs.next()) {
-                
+
                 TxtUsuario.setText(rs.getString(2));
                 TxtEmail.setText(rs.getString(3));
                 TxtLogin.setText(rs.getString(4));
                 TxtSenha.setText(rs.getString(5));
                 CbPerfil.setSelectedItem(rs.getString(6));
                 BtnCriar.setEnabled(false);
-                
+
             } else if (TxtId.getText().isEmpty()) {
 
                 String informacao3 = "O campo Id precisa ser informado,"
@@ -101,9 +101,9 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 String resposta = "O usuario que você pesquisou, não existe";
                 String resposta2 = "";
                 String resposta3 = "Admin";
-                
+
                 JOptionPane.showMessageDialog(this, resposta);
-                
+
                 TxtId.setText(resposta2);
                 TxtUsuario.setText(resposta2);
                 TxtEmail.setText(resposta2);
@@ -149,7 +149,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 String resposta3 = "Admin";
 
                 st.executeUpdate();
-                
+
                 BtnCriar.setEnabled(true);
 
                 JOptionPane.showMessageDialog(this, comcluido);
@@ -213,7 +213,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 System.out.println(e);
             }
         } else {
-
+            JOptionPane.showMessageDialog(null, "Houve um erro, tente novamente");
         }
 
     }
