@@ -337,7 +337,6 @@ public class TelaOs extends javax.swing.JInternalFrame {
         BtnCriar = new javax.swing.JButton();
         BtnAlterar = new javax.swing.JButton();
         BtnDeletar = new javax.swing.JButton();
-        BtnImprimir = new javax.swing.JButton();
         BtnBuscar = new javax.swing.JButton();
 
         setClosable(true);
@@ -520,17 +519,6 @@ public class TelaOs extends javax.swing.JInternalFrame {
             }
         });
 
-        BtnImprimir.setBackground(new java.awt.Color(255, 0, 255));
-        BtnImprimir.setForeground(new java.awt.Color(255, 255, 255));
-        BtnImprimir.setText("Imprimir");
-        BtnImprimir.setToolTipText("Cuidado!! Deleta a ordem de serviço");
-        BtnImprimir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BtnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnImprimirActionPerformed(evt);
-            }
-        });
-
         BtnBuscar.setBackground(new java.awt.Color(0, 153, 255));
         BtnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         BtnBuscar.setText("Buscar");
@@ -553,16 +541,12 @@ public class TelaOs extends javax.swing.JInternalFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LblPesquisarOs)
                             .addComponent(LblIdOs))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addComponent(TxtIdClienteOs, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxtPesquisarOs, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TxtIdClienteOs, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxtPesquisarOs, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LblEquipamento)
@@ -576,9 +560,7 @@ public class TelaOs extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(BtnAlterar)
                                 .addGap(18, 18, 18)
-                                .addComponent(BtnDeletar)
-                                .addGap(18, 18, 18)
-                                .addComponent(BtnImprimir))
+                                .addComponent(BtnDeletar))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(TxtEquipamento)
@@ -633,9 +615,8 @@ public class TelaOs extends javax.swing.JInternalFrame {
                     .addComponent(BtnCriar)
                     .addComponent(BtnAlterar)
                     .addComponent(BtnDeletar)
-                    .addComponent(BtnImprimir)
                     .addComponent(BtnBuscar))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -646,15 +627,16 @@ public class TelaOs extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(LabSituação)
                         .addGap(18, 18, 18)
-                        .addComponent(CbSituação, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(CbSituação, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,11 +647,11 @@ public class TelaOs extends javax.swing.JInternalFrame {
                     .addComponent(CbSituação, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabSituação))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 494, 499);
+        setBounds(0, 0, 494, 498);
     }// </editor-fold>//GEN-END:initComponents
 
     private void TxtTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTecnicoActionPerformed
@@ -687,10 +669,6 @@ public class TelaOs extends javax.swing.JInternalFrame {
     private void BtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarActionPerformed
         DeletarOs();
     }//GEN-LAST:event_BtnDeletarActionPerformed
-
-    private void BtnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnImprimirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BtnImprimirActionPerformed
 
     private void TxtPesquisarOsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtPesquisarOsKeyReleased
         Pesquisar();
@@ -726,7 +704,6 @@ public class TelaOs extends javax.swing.JInternalFrame {
     private javax.swing.JButton BtnBuscar;
     private javax.swing.JButton BtnCriar;
     private javax.swing.JButton BtnDeletar;
-    private javax.swing.JButton BtnImprimir;
     private javax.swing.JComboBox<String> CbSituação;
     private javax.swing.JLabel LabSituação;
     private javax.swing.JLabel LblDataHora;
