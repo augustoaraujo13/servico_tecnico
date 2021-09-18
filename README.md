@@ -1,5 +1,4 @@
 # Serviço tecnico
-
 Software que ajuda uma loja de informática que presta serviços de manutenções em aparelhos
 eletrônicos a gerir os dados dos clientes cadastrados no sistema, gerir as ordens de serviços 
 e imprimir relatórios.
