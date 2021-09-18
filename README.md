@@ -1,32 +1,47 @@
-# servico_tecnico
+# Serviço tecnico
 
-#Introdução:
-O projeto consiste na criação de uma aplicação com banco de dados integrado para controlar, armazenar dados de clientes, usuários e ordem de serviço para uma loja que presta serviços de informática.
+Software que ajuda uma loja de informática que presta serviços de manutenções em aparelhos
+eletrônicos a gerir os dados dos clientes cadastrados no sistema, gerir as ordens de serviços 
+e imprimir relatórios.
 
-#Sobre as tecnologias a serem usadas:
+Este projeto foi feito através de vídeo aulas de uma playlist no Youtube do canal do professor José de Assis
 
-#Linguagem de programação:
+[Canal do professor José de Assis](https://www.youtube.com/c/RoboticapraticaBr) 📺
 
-A linguagem de programação escolhida é o Java, a versão usada será Java SE JDK 8, devido a compatibilidade com as maquinas que o cliente disponibilizou para armazenamento do software.
+[Playlist com as vídeos aulas](https://www.youtube.com/playlist?list=PLbEOwbQR9lqxsTusvu8wfkUECrmcV81MU) 📚
 
-#Banco de dados:
+##
 
-O banco de dados a ser usado será o MySQL server, junto com a ferramenta Workbench 8.0.
-IDE para desenvolvimento do software:
-IDE usada no projeto será o NetBeans 8.2 RC, a IDE Visual Studio Code será um apoio caso venha acontecer algum problema com Netbeans.
+# Projeto
 
-#Plugins:
+Tela de login:
 
-Plugins a ser usado nesse projeto será o MySQL Connector J e MySQL Conector Java.
+![Tela de login](https://raw.githubusercontent.com/augustoaraujo13/imagens-e-arquivos-para-o-readne/main/Serviço%20Tecnico/Imagens/Tela%20login.png)
 
-#Ferramentas adicionais:
+Tela principal:
 
-Scene Builder para ajudar na modelagem gráfica do aplicação.
+![Tela p1](https://raw.githubusercontent.com/augustoaraujo13/imagens-e-arquivos-para-o-readne/main/Serviço%20Tecnico/Imagens/Tela%20principal.png)
 
-#Git e GitHub:
 
-Para melhorar o controle sobre as versões do software usaremos repositório remoto Github, para alocar o projeto. A ferramenta Git nós ajudara a enviar e atualizar o projeto local com o remoto.
+![Tela p2](https://raw.githubusercontent.com/augustoaraujo13/imagens-e-arquivos-para-o-readne/main/Serviço%20Tecnico/Imagens/Tela%20principal%202.png)
 
-#Google Drive:
+Tela de cadastro de usuários:
 
-O armazenamento em nuvem do Google, será usado como bakup do projeto ou partes dele.
+![Tela u](https://raw.githubusercontent.com/augustoaraujo13/imagens-e-arquivos-para-o-readne/main/Serviço%20Tecnico/Imagens/Tela%20de%20cadastro%20de%20usuário.png)
+
+
+# Tecnologias usadas:
+
+Back end:
+
+- Java 8
+
+Front end:
+
+- JavaFX
+
+Banco de dados:
+
+- MySQL
+
+##
